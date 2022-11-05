@@ -1,81 +1,51 @@
-# Optional-Exercise-04d-Tilemap-Coins
+# Exercise-04b-Levels
 
 Exercise for MSCH-C220
 
-A demonstration of this exercise can be found at [https://youtu.be/uCh7VhG-yr4](https://youtu.be/uCh7VhG-yr4).
+A demonstration of this exercise is available at [https://youtu.be/psRW-I77QKw](https://youtu.be/psRW-I77QKw) (this used to be Exercise 04c, so don't let me confuse you)
 
-This exercise is designed to continue our creation of a 2D Platformer, by demonstrating some of the complications in using Tilemaps for consumable items.
+This exercise is designed to continue our creation of a 2D Platformer, by laying out three levels using Godot's TileMap node.
 
-Fork this repository. When that process has completed, make sure that the top of the repository reads [your username]/Optional-Exercise-04d-Tilemap-Coins. Edit the LICENSE and replace BL-MSCH-C220-F22 with your full name. Commit your changes.
+Fork this repository. When that process has completed, make sure that the top of the repository reads [your username]/Exercise-04b-Levels. *Edit the LICENSE and replace BL-MSCH-C220-F22 with your full name.* Commit your changes.
 
 Clone the repository to a Local Path on your computer.
 
-Open Godot. Navigate to this folder. Import the project.godot file and open the "Tilemap Coins" project.
+Open Godot. Import the project.godot file and open the "Levels" project.
 
-Open `res://Game.tscn`. As a child of the Game node, add a Tilemap node and rename it "Coins". Select the Coins node and create a new tileset for it. There should be a single tile in the tileset, using `res://Assets/coin.png` with a Collision shape that is the same size as the tile. The Cell Size for Coins should be 128,128, and the Collision Layer and Mask should both be set as layer 4.
+This project consists of three levels (res://Levels/Level1.tscn, Level2.tscn, Level3.tscn), each of which has three TileMap nodes: Background, Platform, and Foreground. Using the provided asset: res://Assets/Tiles.png, create level-specific tilemaps for each of these scenes.
 
-Add a handful of Coins to the level. If they seem misaligned, you have probably incorrectly set the cell size.
+The goal is to allow the player to move from the blue Spawn portal on the left of the level to the orange Exit portal at the right of the level.
 
-Then open `res://Player/Player.tscn`. As a child of the Player node, add an Area2D node and rename it "Coin_Collector". Add a CollisionShape2D node as a child of Coin_Collector, make it a Capsule shape, and center and resize it so the curved edges of the capsule intersect with the corners of the Player's collision shape (but is at all points outside it). The Coin_Collector node's Collision Layer and Mask should both be set to 4.
+Anything in the Background tilemap will appear behind the player, and anything in the Foreground tilemap will appear in front of the player. Neither of these tilemaps will cause a collision (i.e., they are just for decoration).
 
-Add a body_entered signal to the Coin_Collector node and attach it to the Player script. The resulting callback should look like this:
-```
-func _on_Coin_Collector_body_entered(body):
-	if body.name == "Coins":
-		body.get_coin(global_position)
-```
+To begin, select one of the TileMap nodes (Background, Platform, or Foreground), and in the Inspector Panel, select Tile Set->New TileSet. Then Edit the resulting TileSet. This will open a panel at the bottom of the window. Drag Tiles.png from the Assets folder in the FileSystem panel to the left box of the TileSet editor. Select the resulting Tiles.png tileset.
 
-Back in the Game scene, attach a script to the Coins node. That script should look like this:
-```
-extends TileMap
+You should now see the tileset with an appropriate grid superimposed on it. You will need to create individual 2x2 tiles for each of the assets you will use in this level (for each of the tilesets). I will demonstrate this in more detail in class. Create Region and Collision shapes (using the polygon tool) for each tile.
 
-const BIG_NUMBER = 1000000
-var coins = []
+Then, close the editor and begin to lay our your level. This is a code-free way to express yourself creatively. I would recommend using the pencil and paintbucket tools in the toolbar. When you are done, make sure the player can traverse your level to the exit.
 
-func _ready():
-	for x in range(1000):
-		for y in range(1000):
-			if get_cell(x, y) != -1:
-				coins.append(Vector2(x,y))
-
-
-func get_coin(p):
-	var coords = world_to_map(to_local(p))
-	var min_dist = BIG_NUMBER
-	var which_coin = Vector2.ZERO
-	for c in coins:
-		var d = coords.distance_to(c)
-		if d < min_dist:
-			min_dist = d
-			which_coin = c
-	if which_coin != Vector2.ZERO:
-		call_deferred("set_cellv", which_coin, -1)
-		update_dirty_quadrants()
-
-```
-
-Test the game and try picking up the coins.
+Repeat for the other two levels. Use the brown and red tiles for level 1, green and yellow for level 2, and blue and white tiles for level 3 (to make them visually distinct).
 
 Quit Godot. In GitHub desktop, add a summary message, commit your changes and push them back to GitHub. If you return to and refresh your GitHub repository page, you should now see your updated files with the time when they were changed.
 
-Now edit the README.md file. When you have finished editing, commit your changes, and then turn in the URL of the main repository page (https://github.com/[username]/Optional-Exercise-04d-Tilemap-Coins) on Canvas.
+Now edit the README.md file. When you have finished editing, commit your changes, and then turn in the URL of the main repository page (https://github.com/[username]/Exercise-04b-Levels) on Canvas.
 
 The final state of the file should be as follows (replacing the "Created by" information with your name):
-
 ```
-# Optional-Exercise-04d-Tilemap-Coins
+# Exercise-04b-Levels
 
 Exercise for MSCH-C220
 
-The fourth exercise for the 2D Platformer project, exploring using tilemaps for consumables (like coins or powerups).
+The third exercise for the 2D Platformer project, exploring the TileMap node.
+
 
 ## Implementation
 
 Built using Godot 3.5
 
-The player sprite is an adaptation of [MV Platformer Male](https://opengameart.org/content/mv-platformer-male-32x64) by MoikMellah. CC0 Licensed.
+The player sprite adapted from [MV Platformer Male](https://opengameart.org/content/mv-platformer-male-32x64) by MoikMellah. CC0 Licensed.
 
-The [tilemap](https://kenney.nl/assets/abstract-platformer) and the [coin sprite](https://kenney.nl/assets/puzzle-pack-2](https://kenney.nl/assets/puzzle-pack-2) are provided by Kenney.nl.
+The terrain spritemap is from the [Abstract Platformer package](https://kenney.nl/assets/abstract-platformer) available at Kenney.nl.
 
 
 ## References
@@ -87,15 +57,6 @@ None
 
 None
 
-## Grading
-
-If you would like the points from this exercise to replace a previous exercise or count toward a project or the midterm, indicate that here:
-
-Which Exercise should this replace?
-*or* 
-Which project should these points be applied toward?
-*or*
-Should the points from this exercise be applied to the midterm?
 
 ## Created by 
 
