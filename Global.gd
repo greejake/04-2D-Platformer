@@ -6,6 +6,9 @@ var fade_speed = 0.015
 var fade_in = false
 var fade_out = ""
 
+var time = 1
+var score = 10000
+
 var death_zone = 1000
 
 func _physics_process(_delta):
@@ -42,6 +45,11 @@ func execute_fade_out(_target):
 			fade_out = ""
 			
 
+func update_score(s):
+	score += s
+	var HUD = get_node_or_null("/root/Game/UI/HUD")
+	if HUD != null:
+		HUD.update_score()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("quit"):

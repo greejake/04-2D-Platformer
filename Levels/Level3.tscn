@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/portal_start.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Levels/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Spawn.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=7]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy/Bat.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tiles.png 0"
@@ -71,7 +73,7 @@ points = PoolVector2Array( 0, 0, 0, 0, 32, 0, 32, 64, 0, 64 )
 points = PoolVector2Array( 128, 0, 128, 32, 64, 64, 0, 32, 0, 0, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 0, 96, 0, 96, 0, 64, 64, 0, 128, 64, 192, 0, 256, 64, 256, 96, 192, 32, 128, 96, 64, 32, 0, 96, 0, 96 )
+points = PoolVector2Array( 0, 96, 0, 96, 0, 64, 67, 8.4325, 128, 73.4325, 190, 18.4325, 256, 64, 256, 96, 188, 87.61, 128, 96, 65, 89.61, 0, 96, 0, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 128, 0, 128, 32, 96, 64, 32, 64, 0, 32, 0, 0, 0, 0 )
@@ -246,6 +248,11 @@ points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 128, 0, 128, 32, 96, 64, 32, 64, 0,
 } ]
 7/z_index = 0
 
+[sub_resource type="NavigationPolygon" id=11]
+vertices = PoolVector2Array( 4107, -115, 4173, 1260, 4114, 227, 2364, 557, 2242, 579, 2111, 570, 2110, 451, 2364, 461, 4111, 988, 4087, 670, 4068, 381, 2803, 644, 3033, 640, 2591, 738, 4052, 599, 4052, 579, 2562, 634, 2557, 642, 3899, 579, 3899, 564, 3945, 626, 3363, 653, 3399, 595, 3590, 667, 3260, 596, 3312, 655, 2978, 997, 3961, 1169, 1526, 230, 1518, 269, 1481, 240, 1386, 202, 1381, 249, 1339, 226, 3622, 44, -6, -88, 3026, 158, 2499, 126, 1713, 254, 1702, 274, 1659, 230, 1626, 270, 1601, 234, 3572, 684, 3714, 1051, 3462, 1083, 3201, 1072, 2060, 570, 2248, 646, 2050, 627, 2050, 577, 2715, 1127, 2438, 794, 2432, 760, 2429, 595, 1570, 276, 2429, 453, 2557, 573, 2330, 646, 2295, 796, 4007, 568, 3999, 494, 898, 319, 1013, 314, 1022, 388, 835, 384, 841, 363, 832, 313, 852, 178, 762, 313, 768, 378, 588, 371, 576, 312, 898, 178, 2377, 845, 1426, 271, 319, 325, 497, 312, 503, 365, 312, 385, 3956, 481, 3936, 492, 3297, 571, 3268, 571, 3022, 524, 3011, 414, 1860, 253, 1820, 276, 1794, 241, 3999, 616, 3936, 573, 1153, 313, 1130, 178, 1276, 321, 1283, 342, 1285, 354, 2001, 632, 2739, 576, 2832, 525, 2050, 453, 1911, 578, -3, 435, 2660, 286, 2742, 158, 3562, 373, 1099, 319, 1084, 243, 1120, 310, 2102, 442, 2405, 439, 1934, 332, 2489, 272, 3345, 1192, 2493, 141, 1868, 384, 512, 371, 1341, 386, 1382, 373, 1402, 379, 1101, 388, 2763, 441, 1768, 256, 19, 1304, 1951, 632, 1912, 601, 1430, 372, 1490, 379, 1510, 372, 1548, 372, 1672, 373, 136, 322, 1759, 363, 1822, 370, 137, 385, 1608, 367, 133, 374 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6, 7 ), PoolIntArray( 2, 1, 8, 9, 10 ), PoolIntArray( 11, 12, 13 ), PoolIntArray( 10, 9, 14, 15 ), PoolIntArray( 16, 11, 13, 17 ), PoolIntArray( 18, 19, 20 ), PoolIntArray( 21, 22, 18, 20, 23 ), PoolIntArray( 12, 24, 25, 26 ), PoolIntArray( 27, 8, 1 ), PoolIntArray( 28, 29, 30 ), PoolIntArray( 31, 32, 33 ), PoolIntArray( 0, 2, 34 ), PoolIntArray( 35, 0, 34, 36, 37 ), PoolIntArray( 38, 39, 40 ), PoolIntArray( 40, 41, 42 ), PoolIntArray( 21, 43, 44, 45, 46, 26, 25 ), PoolIntArray( 47, 5, 4, 48, 49, 50 ), PoolIntArray( 17, 13, 51, 52, 53, 54 ), PoolIntArray( 42, 55, 28 ), PoolIntArray( 54, 56, 57, 17 ), PoolIntArray( 58, 54, 53, 59 ), PoolIntArray( 48, 58, 59 ), PoolIntArray( 10, 15, 60, 61 ), PoolIntArray( 62, 63, 64, 65, 66 ), PoolIntArray( 66, 65, 67, 68 ), PoolIntArray( 69, 70, 71, 72 ), PoolIntArray( 63, 62, 73 ), PoolIntArray( 74, 52, 51 ), PoolIntArray( 30, 75, 31 ), PoolIntArray( 76, 77, 78, 79 ), PoolIntArray( 80, 81, 82, 83, 84, 85, 10 ), PoolIntArray( 86, 87, 88 ), PoolIntArray( 68, 67, 69, 72 ), PoolIntArray( 89, 14, 9 ), PoolIntArray( 82, 81, 90, 18, 22 ), PoolIntArray( 91, 92, 93, 94, 95 ), PoolIntArray( 33, 93, 92 ), PoolIntArray( 10, 61, 80 ), PoolIntArray( 49, 48, 59, 96 ), PoolIntArray( 83, 24, 12, 11, 97, 98, 84 ), PoolIntArray( 99, 47, 50, 100, 101 ), PoolIntArray( 102, 103, 36, 104 ), PoolIntArray( 105, 63, 73, 106, 107 ), PoolIntArray( 7, 6, 108, 109 ), PoolIntArray( 102, 104, 110, 86, 111 ), PoolIntArray( 97, 57, 56 ), PoolIntArray( 20, 89, 9 ), PoolIntArray( 20, 9, 23 ), PoolIntArray( 21, 23, 43 ), PoolIntArray( 51, 26, 46, 112 ), PoolIntArray( 113, 111, 86 ), PoolIntArray( 37, 113, 86, 88 ), PoolIntArray( 31, 33, 92 ), PoolIntArray( 114, 110, 104 ), PoolIntArray( 79, 78, 115 ), PoolIntArray( 112, 45, 44, 27 ), PoolIntArray( 28, 30, 31 ), PoolIntArray( 116, 117, 118 ), PoolIntArray( 114, 10, 85, 119, 116 ), PoolIntArray( 119, 85, 120, 64 ), PoolIntArray( 88, 121, 38, 40 ), PoolIntArray( 122, 123, 96, 59, 74, 51 ), PoolIntArray( 68, 72, 77 ), PoolIntArray( 112, 27, 1 ), PoolIntArray( 112, 1, 122 ), PoolIntArray( 51, 112, 122 ), PoolIntArray( 124, 123, 122, 101 ), PoolIntArray( 100, 124, 101 ), PoolIntArray( 118, 125, 126 ), PoolIntArray( 126, 127, 128, 129, 114 ), PoolIntArray( 68, 77, 76, 130, 35 ), PoolIntArray( 37, 88, 40, 31 ), PoolIntArray( 129, 131, 132, 114 ), PoolIntArray( 107, 91, 95, 116, 119, 105 ), PoolIntArray( 108, 99, 101, 133 ), PoolIntArray( 128, 134, 129 ), PoolIntArray( 97, 56, 109, 120, 98 ), PoolIntArray( 42, 28, 31, 40 ), PoolIntArray( 37, 31, 92, 35 ), PoolIntArray( 36, 103, 37 ), PoolIntArray( 116, 118, 126, 114 ), PoolIntArray( 79, 115, 71, 70, 65 ), PoolIntArray( 79, 65, 64, 120 ), PoolIntArray( 133, 79, 120, 109 ), PoolIntArray( 114, 104, 10 ), PoolIntArray( 92, 106, 73 ), PoolIntArray( 35, 92, 73 ), PoolIntArray( 35, 73, 68 ), PoolIntArray( 101, 35, 130, 135 ), PoolIntArray( 101, 135, 133 ), PoolIntArray( 109, 108, 133 ) ]
+outlines = [ PoolVector2Array( -3, 435, -6, -88, 4107, -115, 4173, 1260, 19, 1304 ), PoolVector2Array( 137, 385, 312, 385, 319, 325, 136, 322, 133, 374 ), PoolVector2Array( 512, 371, 588, 371, 576, 312, 497, 312, 503, 365 ), PoolVector2Array( 768, 378, 835, 384, 832, 313, 762, 313 ), PoolVector2Array( 1022, 388, 1101, 388, 1099, 319, 1013, 314 ), PoolVector2Array( 1285, 354, 1341, 386, 1382, 373, 1402, 379, 1430, 372, 1490, 379, 1510, 372, 1548, 372, 1608, 367, 1672, 373, 1759, 363, 1822, 370, 1868, 384, 1934, 332, 1860, 253, 1820, 276, 1794, 241, 1768, 256, 1713, 254, 1702, 274, 1659, 230, 1626, 270, 1601, 234, 1570, 276, 1526, 230, 1518, 269, 1481, 240, 1426, 271, 1386, 202, 1381, 249, 1339, 226, 1276, 321, 1283, 342 ), PoolVector2Array( 1912, 601, 1951, 632, 2001, 632, 2050, 627, 2050, 577, 1911, 578 ), PoolVector2Array( 2295, 796, 2377, 845, 2438, 794, 2432, 760 ), PoolVector2Array( 2562, 634, 2803, 644, 2739, 576, 2557, 573, 2557, 642 ), PoolVector2Array( 2591, 738, 3033, 640, 2978, 997, 2715, 1127 ), PoolVector2Array( 3026, 158, 3562, 373, 4068, 381, 4114, 227, 3622, 44 ), PoolVector2Array( 2499, 126, 2742, 158, 2660, 286, 2489, 272, 2493, 141 ), PoolVector2Array( 2832, 525, 3022, 524, 3011, 414, 2763, 441 ), PoolVector2Array( 3260, 596, 3312, 655, 3363, 653, 3399, 595, 3297, 571, 3268, 571 ), PoolVector2Array( 3590, 667, 4087, 670, 4111, 988, 3961, 1169, 3714, 1051, 3572, 684 ), PoolVector2Array( 3201, 1072, 3462, 1083, 3345, 1192 ), PoolVector2Array( 3899, 579, 3936, 573, 3936, 492, 3956, 481, 3999, 494, 4007, 568, 4052, 579, 4052, 599, 3999, 616, 3945, 626, 3899, 564 ), PoolVector2Array( 852, 178, 898, 178, 898, 319, 841, 363 ), PoolVector2Array( 1084, 243, 1130, 178, 1153, 313, 1120, 310 ), PoolVector2Array( 2110, 451, 2111, 570, 2060, 570, 2050, 453, 2102, 442 ), PoolVector2Array( 2242, 579, 2364, 557, 2364, 461, 2405, 439, 2429, 453, 2429, 595, 2330, 646, 2248, 646 ) ]
+
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -259,11 +266,12 @@ tile_data = PoolIntArray( -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0
 [node name="Spawn" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Spawn"]
-position = Vector2( 200.778, 201.832 )
+position = Vector2( 200, 269 )
 texture = ExtResource( 1 )
 script = ExtResource( 6 )
 
 [node name="Exit_to_4" type="Area2D" parent="."]
+position = Vector2( 323, 36 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -292,7 +300,7 @@ limit_bottom = 600
 tile_set = SubResource( 10 )
 collision_friction = 0.0
 format = 1
-tile_data = PoolIntArray( 262166, 6, 0, 327682, 0, 0, 327688, 1, 0, 327692, 1, 0, 327696, 1, 0, 327700, 5, 0, 327706, 2, 0, 327708, 4, 0, 327739, 5, 0, 458796, 0, 0, 524350, 5, 0, 589854, 7, 0, 589859, 0, 0, 589864, 0, 0, 589878, 5, 0, 655409, 6, 0, 655419, 5, 0, 786468, 7, 0, 786473, 1, 0, 786487, 5, 0, 917550, 1, 0, 917554, 6, 0 )
+tile_data = PoolIntArray( 131120, 5, 0, 131127, 7, 0, 196621, -1610612729, 0, 196625, -1610612729, 0, 196647, 5, 0, 262164, 6, 0, 262165, 6, 0, 262166, 6, 0, 262169, 6, 0, 262170, 6, 0, 262196, 5, 0, 262206, 7, 0, 327682, 0, 0, 327688, 1, 0, 327692, 1, 0, 327696, 1, 0, 327700, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 327705, 5, 0, 327706, 5, 0, 327707, 5, 0, 327708, 5, 0, 327739, 5, 0, 458784, -1610612729, 0, 458789, -1610612729, 0, 458796, 0, 0, 524336, 7, 0, 524343, 7, 0, 589854, 7, 0, 589859, 7, 0, 589864, 0, 0, 589875, 7, 0, 589881, 7, 0, 589883, 7, 0, 589885, 7, 0, 720941, 7, 0, 720952, 5, 0, 720958, 5, 0, 786468, 7, 0, 786473, 1, 0, 917548, 5, 0, 983102, 7, 0, 1048618, 7, 0, 1048634, 5, 0, 1114162, 0, 0, 1114173, 5, 0 )
 
 [node name="Foreground" type="TileMap" parent="."]
 collision_friction = 0.0
@@ -302,5 +310,15 @@ format = 1
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 process_mode = 0
+
+[node name="HUD" parent="Camera" instance=ExtResource( 8 )]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 11 )
+
+[node name="Bat" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3953, 107 )
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

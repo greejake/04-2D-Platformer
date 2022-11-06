@@ -56,4 +56,5 @@ func set_animation(anim):
 	else: $AnimatedSprite.play()
 
 func die():
+	Global.score = Global.score - 100
 	queue_free()
